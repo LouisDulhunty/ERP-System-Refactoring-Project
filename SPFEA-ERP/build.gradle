@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = '17'
+targetCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2' // JUnit 5 API
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2' // JUnit 5 Engine
+    testImplementation 'org.hamcrest:hamcrest:2.2' // Hamcrest dependency
+
+    testImplementation 'org.mockito:mockito-core:3.12.4' // Mockito core dependency
+    testImplementation 'org.mockito:mockito-junit-jupiter:3.12.4' // Mockito JUnit 5 integration
+
+    testImplementation group: 'org.mockito', name: 'mockito-inline', version: '3.12.4'
+
+    testImplementation group: 'org.springframework', name: 'spring-test', version: '6.0.8'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+run {
+    standardInput = System.in
+}
+
+mainClassName = "au.edu.sydney.brawndo.erp.view.CLI"
